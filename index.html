@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asia Collins | DoW Cyber RAP Candidate</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #050a0e;
+    --deep: #080f14;
+    --navy: #0a1628;
+    --accent: #00d4ff;
+    --accent2: #00ff9d;
+    --gold: #ffd700;
+    --red: #ff3c3c;
+    --text: #c8d8e8;
+    --muted: #5a7a94;
+    --mono: 'Share Tech Mono', monospace;
+    --display: 'Barlow Condensed', sans-serif;
+    --body: 'Barlow', sans-serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: var(--body);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  .cursor {
+    width: 12px; height: 12px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s, opacity 0.3s;
+    transform: translate(-50%, -50%);
+  }
+  .cursor-dot {
+    width: 4px; height: 4px;
+    background: var(--accent2);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 2px,
+      rgba(0,212,255,0.015) 2px, rgba(0,212,255,0.015) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(5,10,14,0.92);
+    border-bottom: 1px solid rgba(0,212,255,0.15);
+    backdrop-filter: blur(10px);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent2); }
+  .nav-status {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .status-dot {
+    width: 6px; height: 6px;
+    background: var(--accent2);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-content { max-width: 900px; }
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-tag::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
+  .hero-name {
+    font-family: var(--display);
+    font-size: clamp(64px, 10vw, 120px);
+    font-weight: 900;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    color: #fff;
+    margin-bottom: 12px;
+    animation: glitch1 8s infinite;
+  }
+  .hero-name span { -webkit-text-stroke: 2px var(--accent); color: transparent; }
+  @keyframes glitch1 {
+    0%, 95%, 100% { clip-path: none; transform: none; }
+    96% { clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%); transform: translate(-4px); }
+    97% { clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%); transform: translate(4px); }
+    98% { clip-path: none; transform: none; }
+  }
+  .hero-title {
+    font-family: var(--display);
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 300;
+    color: var(--accent);
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    min-height: 40px;
+  }
+  .hero-title::after { content: '_'; animation: blink 1s step-end infinite; color: var(--accent); }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  .hero-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 580px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--accent);
+    border: none;
+    padding: 16px 36px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.2s;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+  .btn-secondary {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid rgba(0,212,255,0.4);
+    padding: 16px 36px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--accent2); color: var(--accent2); transform: translateY(-2px); }
+
+  .hero-badges {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--accent2);
+    border: 1px solid rgba(0,255,157,0.3);
+    padding: 8px 16px;
+    text-transform: uppercase;
+    background: rgba(0,255,157,0.05);
+    animation: float 3s ease-in-out infinite;
+  }
+  .badge:nth-child(2) { animation-delay: 0.5s; }
+  .badge:nth-child(3) { animation-delay: 1s; }
+  .badge:nth-child(4) { animation-delay: 1.5s; }
+  .badge:nth-child(5) { animation-delay: 2s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 48px;
+    margin-bottom: 64px;
+  }
+  .divider-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,212,255,0.5), transparent); }
+  .divider-num { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+
+  section { position: relative; z-index: 1; padding: 100px 48px; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .about-statement {
+    font-family: var(--display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 32px;
+  }
+  .about-statement em { font-style: normal; color: var(--accent); }
+  .about-body { font-size: 15px; line-height: 1.9; color: var(--text); font-weight: 300; margin-bottom: 20px; }
+  .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 8px; }
+  .stat-box {
+    background: rgba(0,212,255,0.04);
+    border: 1px solid rgba(0,212,255,0.12);
+    padding: 24px;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .stat-box:hover { border-color: rgba(0,212,255,0.4); background: rgba(0,212,255,0.08); }
+  .stat-num { font-family: var(--display); font-size: 48px; font-weight: 900; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+
+  #skills { background: var(--deep); }
+  .skills-intro { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; margin-bottom: 64px; align-items: end; }
+  .skills-heading { font-family: var(--display); font-size: clamp(48px, 6vw, 80px); font-weight: 900; text-transform: uppercase; line-height: 0.9; color: #fff; }
+  .skills-heading span { color: var(--accent); }
+  .skills-desc { font-size: 15px; line-height: 1.8; color: var(--text); font-weight: 300; max-width: 540px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .skill-card {
+    background: rgba(8,15,20,0.9);
+    border: 1px solid rgba(0,212,255,0.1);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--accent);
+    transition: height 0.4s;
+  }
+  .skill-card:hover { border-color: rgba(0,212,255,0.3); }
+  .skill-card:hover::before { height: 100%; }
+  .skill-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+  .skill-name { font-family: var(--display); font-size: 20px; font-weight: 700; text-transform: uppercase; color: #fff; margin-bottom: 8px; letter-spacing: 1px; }
+  .skill-desc { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+  .skill-bar-wrap { background: rgba(0,212,255,0.08); height: 3px; width: 100%; margin-bottom: 6px; }
+  .skill-bar { height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width 1.5s ease; }
+  .skill-pct { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 2px; }
+
+  .tools-section { margin-top: 56px; }
+  .tools-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .tool-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(0,212,255,0.25);
+    padding: 7px 16px;
+    background: rgba(0,212,255,0.04);
+    transition: all 0.2s;
+  }
+  .tool-pill:hover { background: rgba(0,212,255,0.12); border-color: var(--accent2); color: var(--accent2); }
+
+  .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .cert-card {
+    border: 1px solid rgba(0,212,255,0.15);
+    padding: 28px 20px;
+    text-align: center;
+    background: rgba(0,212,255,0.03);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cert-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,212,255,0.06), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .cert-card:hover { border-color: var(--accent2); transform: translateY(-4px); }
+  .cert-card:hover::after { opacity: 1; }
+  .cert-logo { font-family: var(--display); font-size: 28px; font-weight: 900; color: var(--accent); margin-bottom: 8px; line-height: 1; }
+  .cert-name { font-family: var(--mono); font-size: 10px; color: var(--text); letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.5; }
+  .cert-status { font-family: var(--mono); font-size: 9px; color: var(--accent2); letter-spacing: 2px; text-transform: uppercase; margin-top: 8px; display: block; }
+
+  #mission { background: var(--navy); position: relative; overflow: hidden; }
+  #mission::before {
+    content: 'CYBER RAP';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--display);
+    font-size: 200px;
+    font-weight: 900;
+    color: rgba(0,212,255,0.025);
+    letter-spacing: -8px;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; position: relative; }
+  .mission-header { font-family: var(--display); font-size: clamp(36px, 4vw, 56px); font-weight: 900; text-transform: uppercase; color: #fff; line-height: 1; margin-bottom: 24px; }
+  .mission-header span { color: var(--gold); }
+  .mission-body { font-size: 15px; line-height: 1.9; color: var(--text); font-weight: 300; margin-bottom: 32px; }
+  .alignment-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .alignment-list li { display: flex; align-items: flex-start; gap: 16px; font-size: 14px; color: var(--text); line-height: 1.6; }
+  .alignment-list li::before { content: '//'; font-family: var(--mono); color: var(--accent2); font-size: 12px; flex-shrink: 0; margin-top: 2px; }
+  .mission-right { display: flex; flex-direction: column; gap: 16px; }
+  .mission-box { background: rgba(0,212,255,0.04); border-left: 3px solid var(--accent); padding: 24px 28px; }
+  .mission-box-label { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .mission-box-text { font-size: 15px; color: var(--text); line-height: 1.7; font-weight: 300; }
+
+  .exp-timeline { position: relative; padding-left: 40px; }
+  .exp-timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--accent), transparent); }
+  .exp-item { position: relative; margin-bottom: 56px; }
+  .exp-item::before { content: ''; position: absolute; left: -44px; top: 6px; width: 8px; height: 8px; border: 2px solid var(--accent); background: var(--black); border-radius: 50%; }
+  .exp-date { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; }
+  .exp-role { font-family: var(--display); font-size: 22px; font-weight: 700; text-transform: uppercase; color: #fff; margin-bottom: 4px; letter-spacing: 1px; }
+  .exp-org { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 2px; margin-bottom: 16px; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .exp-bullets li { font-size: 13px; color: var(--text); line-height: 1.6; padding-left: 20px; position: relative; font-weight: 300; }
+  .exp-bullets li::before { content: '>'; position: absolute; left: 0; font-family: var(--mono); color: var(--accent2); font-size: 12px; }
+
+  #contact { background: var(--black); text-align: center; padding: 120px 48px; }
+  .contact-heading { font-family: var(--display); font-size: clamp(48px, 7vw, 96px); font-weight: 900; text-transform: uppercase; line-height: 0.9; color: #fff; margin-bottom: 24px; }
+  .contact-heading span { -webkit-text-stroke: 2px var(--accent); color: transparent; }
+  .contact-sub { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 48px; }
+  .contact-links { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
+  .contact-link {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(0,212,255,0.2);
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover { color: var(--accent2); border-color: var(--accent2); }
+  .contact-email-box {
+    display: inline-block;
+    background: rgba(0,212,255,0.06);
+    border: 1px solid rgba(0,212,255,0.2);
+    padding: 24px 48px;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+  }
+
+  footer {
+    border-top: 1px solid rgba(0,212,255,0.1);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-left { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+  .footer-right { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 2px; }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 5px; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; display: block; }
+  .section-title { font-family: var(--display); font-size: clamp(40px, 5vw, 64px); font-weight: 900; text-transform: uppercase; color: #fff; line-height: 0.95; margin-bottom: 48px; }
+  .section-title span { color: var(--accent); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .tag { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent2); border: 1px solid rgba(0,255,157,0.25); padding: 5px 12px; background: rgba(0,255,157,0.04); }
+
+  .quality-box { background: rgba(0,212,255,0.04); border: 1px solid rgba(0,212,255,0.12); padding: 16px 20px; font-size: 14px; color: var(--text); line-height: 1.6; font-weight: 300; margin-bottom: 12px; }
+  .quality-title { color: #fff; font-family: var(--display); font-size: 16px; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 6px; }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-badges { display: none; }
+    section { padding: 64px 24px; }
+    .about-grid, .skills-intro, .mission-grid, .two-col { grid-template-columns: 1fr; gap: 40px; }
+    .skills-grid, .certs-grid { grid-template-columns: 1fr; }
+    .section-divider { padding: 0 24px; }
+    footer { padding: 20px 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">// ASIA.COLLINS</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#mission">Mission Fit</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-status">
+    <div class="status-dot"></div>
+    Available for Cyber RAP
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">DoW Cyber RAP Candidate // Atlanta, GA</div>
+    <h1 class="hero-name">Asia<br><span>Collins</span></h1>
+    <div class="hero-title" id="heroTitle">IT Security Specialist</div>
+    <p class="hero-desc">
+      U.S. citizen. Secret clearance eligible. 10+ years protecting enterprise systems, enforcing compliance, and managing critical IT infrastructure across high-stakes, regulated environments. Ready to bring that experience to the Department of War's cyber mission.
+    </p>
+    <div class="hero-cta">
+      <a href="#mission" class="btn-primary">View Mission Fit</a>
+      <a href="#contact" class="btn-secondary">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="hero-badges">
+    <div class="badge">U.S. Citizen</div>
+    <div class="badge">Secret Clearance Eligible</div>
+    <div class="badge">10+ Years IT Experience</div>
+    <div class="badge">Certified Scrum Master</div>
+    <div class="badge">WGU — B.S. IT In Progress</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="section-divider">
+  <span class="divider-num">01</span>
+  <div class="divider-line"></div>
+  <span class="divider-label">About</span>
+</div>
+
+<section id="about">
+  <div class="about-grid reveal">
+    <div>
+      <p class="about-statement">5 years of <em>precision.</em> Built for <em>defense.</em></p>
+      <p class="about-body">
+        I am Asia Collins, an IT and operations professional from Atlanta, Georgia with over ten years of hands-on experience in enterprise IT support, compliance tracking, asset security, and identity management. Every role I have held has demanded the same thing the DoW Cyber RAP demands: accuracy, accountability, and the discipline to protect what matters.
+      </p>
+      <p class="about-body">
+        I have reviewed thousands of records for compliance integrity, administered enterprise platforms like Okta and Azure AD, and identified and escalated operational risks before they became incidents. That is not just IT work. That is the foundation of cyber defense.
+      </p>
+      <p class="about-body">
+        I am currently completing my B.S. in Information Technology at Western Governors University and I am fully prepared to obtain a Secret clearance. The Cyber RAP is the mission I have been building toward.
+      </p>
+      <div class="tag-row">
+        <span class="tag">Atlanta, GA</span>
+        <span class="tag">U.S. Citizen</span>
+        <span class="tag">Secret Clearance Eligible</span>
+        <span class="tag">WGU B.S. IT</span>
+        <span class="tag">Certified Scrum Master</span>
+      </div>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Enterprise IT</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">1,200+</div>
+        <div class="stat-label">Weekly Compliance Records Reviewed</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">25%</div>
+        <div class="stat-label">Satisfaction Score Improvement</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">20%</div>
+        <div class="stat-label">Risk Exposure Reduced</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="section-divider">
+  <span class="divider-num">02</span>
+  <div class="divider-line"></div>
+  <span class="divider-label">Skills</span>
+</div>
+
+<section id="skills">
+  <div class="skills-intro reveal">
+    <h2 class="skills-heading">Core<br><span>Skills</span></h2>
+    <p class="skills-desc">
+      My technical expertise spans the exact disciplines the DoW Cyber RAP is built around: identity and access management, infrastructure security, compliance enforcement, incident triage, and network fundamentals. These are not theoretical skills. They come from ten years of daily execution in enterprise environments.
+    </p>
+  </div>
+
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <span class="skill-icon">🔐</span>
+      <div class="skill-name">Identity & Access Management</div>
+      <div class="skill-desc">Administered Okta and Azure AD across enterprise environments, ensuring all access records were accurately assigned, tracked, and compliant with security requirements.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+      <div class="skill-pct">88% Proficiency</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🛡️</span>
+      <div class="skill-name">Compliance & Audit Readiness</div>
+      <div class="skill-desc">Reviewed 1,200+ weekly records for compliance integrity, enforced accuracy protocols, and maintained meticulous documentation to support audit readiness at all times.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+      <div class="skill-pct">92% Proficiency</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🔍</span>
+      <div class="skill-name">Incident Triage & Response</div>
+      <div class="skill-desc">Managed 300+ daily service requests using structured ticketing in ServiceNow; identified and escalated emerging operational risks, reducing exposure by 20%.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+      <div class="skill-pct">85% Proficiency</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">🌐</span>
+      <div class="skill-name">Networking Fundamentals</div>
+      <div class="skill-desc">Hands-on with TCP/IP, DNS, DHCP, VPNs, VLANs, firewall basics, and packet capture and log analysis in enterprise-grade environments.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+      <div class="skill-pct">78% Proficiency</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">💻</span>
+      <div class="skill-name">Systems Troubleshooting</div>
+      <div class="skill-desc">Diagnosed and resolved issues across Windows, macOS, and Linux environments including SaaS apps, SSO and identity systems, browsers, and endpoint agents.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:86%"></div></div>
+      <div class="skill-pct">86% Proficiency</div>
+    </div>
+    <div class="skill-card">
+      <span class="skill-icon">📋</span>
+      <div class="skill-name">IT Asset Lifecycle & Chain of Custody</div>
+      <div class="skill-desc">Tracked, reconciled, and documented IT assets with DoD property management standards in mind, maintaining complete audit trails and chain-of-custody integrity.</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+      <div class="skill-pct">90% Proficiency</div>
+    </div>
+  </div>
+
+  <!-- Tools -->
+  <div class="tools-section reveal">
+    <span class="section-label">Tools & Platforms</span>
+    <div class="tools-grid">
+      <div class="tool-pill">ServiceNow</div>
+      <div class="tool-pill">Okta</div>
+      <div class="tool-pill">Azure AD</div>
+      <div class="tool-pill">Microsoft O365</div>
+      <div class="tool-pill">Google Workspace</div>
+      <div class="tool-pill">Zendesk</div>
+      <div class="tool-pill">Talkdesk</div>
+      <div class="tool-pill">AnyConnect VPN</div>
+      <div class="tool-pill">TCP/IP</div>
+      <div class="tool-pill">DNS / DHCP</div>
+      <div class="tool-pill">VPN / VLAN</div>
+      <div class="tool-pill">Firewall Basics</div>
+      <div class="tool-pill">Log Analysis</div>
+      <div class="tool-pill">Windows / macOS / Linux</div>
+      <div class="tool-pill">ITIL Framework</div>
+      <div class="tool-pill">Root Cause Analysis</div>
+      <div class="tool-pill">KCS Documentation</div>
+      <div class="tool-pill">Agile / Scrum</div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div style="margin-top: 72px;" class="reveal">
+    <span class="section-label">Certifications</span>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-logo">CSM</div>
+        <div class="cert-name">Certified Scrum Master — Agile Enterprise Coach</div>
+        <span class="cert-status">&#10003; Earned</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo">ITIL</div>
+        <div class="cert-name">ITIL Fundamentals — Incident, Problem & Change Mgmt</div>
+        <span class="cert-status">&#10003; Background Held</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-logo">B.S.</div>
+        <div class="cert-name">B.S. Information Technology — Western Governors University</div>
+        <span class="cert-status" style="color:var(--gold)">In Progress</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION FIT -->
+<div class="section-divider">
+  <span class="divider-num">03</span>
+  <div class="divider-line"></div>
+  <span class="divider-label">Mission Fit</span>
+</div>
+
+<section id="mission">
+  <div class="mission-grid reveal">
+    <div>
+      <h2 class="mission-header">Why Asia Fits the <span>Cyber RAP</span> Mission</h2>
+      <p class="mission-body">
+        The DoW Cyber RAP needs people who already understand compliance, security, accountability, and what it means to protect systems that cannot fail. Asia Collins has been doing exactly that for ten years across enterprise environments at DXC Technology, Rheem Manufacturing, and Bank of America.
+      </p>
+      <ul class="alignment-list">
+        <li>U.S. citizen fully eligible for a Secret clearance with zero disqualifying history</li>
+        <li>Already administering enterprise identity systems like Okta and Azure AD that protect the same type of access controls used in DoD environments</li>
+        <li>Proven track record of compliance enforcement, audit readiness, and chain-of-custody documentation aligned with DoD property management standards</li>
+        <li>Experience identifying, escalating, and reducing operational risk — the core function of a cyber defense analyst</li>
+        <li>Currently earning a B.S. in Information Technology at WGU, with hands-on networking and security fundamentals</li>
+        <li>Atlanta-based, adaptable, and fully committed to the 12-month apprenticeship and a full-time DoW cyber career</li>
+      </ul>
+    </div>
+    <div class="mission-right">
+      <div class="mission-box">
+        <div class="mission-box-label">Program Alignment</div>
+        <div class="mission-box-text">The Cyber RAP trains apprentices in cyber defense analysis, infrastructure support, and incident response. Asia has practiced all three in real enterprise environments — managing 300+ daily incidents, hardening SaaS platform access, and reducing organizational risk by 20% at DXC Technology alone.</div>
+      </div>
+      <div class="mission-box" style="border-left-color: var(--accent2);">
+        <div class="mission-box-label" style="color:var(--accent2)">Secret Clearance Readiness</div>
+        <div class="mission-box-text">Asia is a U.S. citizen with a clean background, experience handling sensitive financial and compliance data under strict confidentiality protocols, and a history of working within chain-of-custody frameworks. The clearance process is a natural next step.</div>
+      </div>
+      <div class="mission-box" style="border-left-color: var(--gold);">
+        <div class="mission-box-label" style="color:var(--gold)">Long-Term DoW Commitment</div>
+        <div class="mission-box-text">Asia is not looking for a stepping stone. The goal is a permanent role as a cyber defender for the Department of War, growing from apprentice to senior analyst and contributing to the protection of the systems our warfighters depend on every day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<div class="section-divider">
+  <span class="divider-num">04</span>
+  <div class="divider-line"></div>
+  <span class="divider-label">Experience</span>
+</div>
+
+<section id="experience">
+  <div class="two-col">
+    <div class="reveal">
+      <span class="section-label">Work History</span>
+      <div class="exp-timeline">
+
+        <div class="exp-item">
+          <div class="exp-date">Dec 2023 — May 2026</div>
+          <div class="exp-role">IT Asset & Operations Support Specialist</div>
+          <div class="exp-org">DXC Technology // Atlanta, GA (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Reviewed and evaluated 1,200+ weekly records for compliance with organizational standards, enforcing accuracy and integrity protocols aligned with IT asset accountability and inventory auditing.</li>
+            <li>Triaged and managed 300+ daily service requests in ServiceNow, achieving a 25% improvement in customer satisfaction scores through structured ticketing workflows.</li>
+            <li>Administered enterprise SaaS platforms including Okta, Azure AD, and O365, ensuring all access records were accurately assigned, tracked, and compliant with security requirements.</li>
+            <li>Identified and escalated emerging operational risks through continuous system monitoring, reducing risk exposure by 20% — directly aligned with cyber defense analyst responsibilities.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Apr 2023 — Nov 2023</div>
+          <div class="exp-role">IT Asset & Customer Operations Specialist</div>
+          <div class="exp-org">Rheem Manufacturing Inc. // Atlanta, GA (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Delivered end-user training on tools and best practices, reducing support requests by 20% and improving technical proficiency across the organization.</li>
+            <li>Maintained organized and secure records of end-user assets and support history, ensuring chain-of-custody accuracy and facilitating rapid audit response.</li>
+            <li>Provided multi-channel technical support achieving a 95% customer satisfaction rate through precise communication and systematic problem-solving.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Dec 2022 — Apr 2023</div>
+          <div class="exp-role">Research & Adjustment Analyst II</div>
+          <div class="exp-org">Bank of America // Atlanta, GA (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Investigated and resolved 150+ annual discrepancies in high-volume financial records by applying regulatory guidelines — directly comparable to IT asset reconciliation in a regulated environment.</li>
+            <li>Analyzed datasets spanning millions of records to identify trends, anomalies, and compliance risks, reducing discrepancies by 20%.</li>
+            <li>Maintained strict data confidentiality and chain-of-custody integrity, coordinating with compliance and legal teams throughout all record-keeping activities.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-date">Mar 2021 — Oct 2022</div>
+          <div class="exp-role">Sr. Client Support & Asset Tracking Specialist</div>
+          <div class="exp-org">Bank of America // Atlanta, GA (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Tracked, routed, and resolved support cases across 50+ partner banks using structured ticketing and documentation workflows, maintaining complete audit trails on all assigned items.</li>
+            <li>Collaborated with team leads to verify complete resolution before case closure, upholding accuracy and accountability standards consistent with DoD property management requirements.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="reveal">
+      <span class="section-label">Education & Training</span>
+      <div class="exp-timeline">
+        <div class="exp-item">
+          <div class="exp-date">In Progress</div>
+          <div class="exp-role">B.S. Information Technology</div>
+          <div class="exp-org">Western Governors University</div>
+          <ul class="exp-bullets">
+            <li>Coursework covers networking, cybersecurity fundamentals, cloud computing, and IT project management.</li>
+            <li>Hands-on labs in network configuration, security protocols, and systems administration.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-date">Graduated May 2021</div>
+          <div class="exp-role">Technology & Business Development</div>
+          <div class="exp-org">YearUp Apprenticeship // Atlanta, GA</div>
+          <ul class="exp-bullets">
+            <li>Completed a rigorous apprenticeship combining technical training with professional development in IT and business operations.</li>
+            <li>Gained foundational hands-on experience that launched a 5-year career in enterprise IT.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 48px;">
+        <span class="section-label">Why Asia Stands Out</span>
+        <div class="quality-box">
+          <strong class="quality-title">Precision Under Pressure</strong>
+          Managing 300+ daily incidents and 1,200+ weekly compliance records with consistent accuracy is not a resume bullet. It is proof that I perform when the volume is high and the stakes are real.
+        </div>
+        <div class="quality-box">
+          <strong class="quality-title">Security Mindset from Day One</strong>
+          Every role I have held required strict data confidentiality, chain-of-custody protocols, and compliance with regulated frameworks. I did not learn to think about security. I was hired to enforce it.
+        </div>
+        <div class="quality-box">
+          <strong class="quality-title">Mission Over Job Title</strong>
+          I chose the Cyber RAP because I want to protect systems that matter to national security, not because it is a good career move. That distinction is something a recruiter can feel in every conversation.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="section-divider">
+  <span class="divider-num">05</span>
+  <div class="divider-line"></div>
+  <span class="divider-label">Contact</span>
+</div>
+
+<section id="contact">
+  <div class="reveal">
+    <h2 class="contact-heading">Let's <span>Connect</span></h2>
+    <p class="contact-sub">Ready to defend. Ready to serve. Ready to talk.</p>
+
+    <div class="contact-email-box">
+      collinsasiatech@gmail.com
+    </div>
+
+    <div class="contact-links">
+      <a href="https://linkedin.com/in/asiacollins" class="contact-link" target="_blank">
+        &#11835; LinkedIn
+      </a>
+      <a href="tel:+14706818205" class="contact-link">
+        &#11835; (470) 681-8205
+      </a>
+      <a href="#" class="contact-link">
+        &#11835; Atlanta, Georgia
+      </a>
+    </div>
+
+    <a href="mailto:osd.mc-alex.dod-cio.mbx.cyber-rap@mail.mil" class="btn-primary" style="font-size:11px;">
+      Apply: DoW Cyber RAP Program
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">Asia Collins &copy; 2026 — DoW Cyber RAP Candidate</div>
+  <div class="footer-right">Atlanta, GA // U.S. Citizen // Secret Clearance Eligible</div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const dot = document.getElementById('cursorDot');
+  let mx = 0, my = 0, cx = 0, cy = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top = my + 'px';
+  });
+
+  function animateCursor() {
+    cx += (mx - cx) * 0.15;
+    cy += (my - cy) * 0.15;
+    cursor.style.left = cx + 'px';
+    cursor.style.top = cy + 'px';
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(2)');
+    el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        e.target.querySelectorAll('.skill-bar').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0';
+          setTimeout(() => bar.style.width = w, 100);
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  const titles = ['IT Security Specialist', 'Compliance & Audit Expert', 'Incident Response Analyst', 'Identity & Access Manager', 'DoW Cyber RAP Candidate'];
+  let ti = 0, ci = 0, deleting = false;
+  const titleEl = document.getElementById('heroTitle');
+
+  function typeLoop() {
+    const current = titles[ti];
+    if (!deleting) {
+      titleEl.textContent = current.slice(0, ci++);
+      if (ci > current.length) { deleting = true; setTimeout(typeLoop, 2200); return; }
+    } else {
+      titleEl.textContent = current.slice(0, ci--);
+      if (ci < 0) { deleting = false; ti = (ti + 1) % titles.length; }
+    }
+    setTimeout(typeLoop, deleting ? 45 : 75);
+  }
+  typeLoop();
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  document.querySelectorAll('.skill-card, .cert-card').forEach((card, i) => {
+    card.style.transitionDelay = (i * 0.08) + 's';
+  });
+</script>
+</body>
+</html>
